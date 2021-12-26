@@ -5,7 +5,7 @@
 Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https://radarr.video/), [Sonarr](https://sonarr.tv/)), muss eine alternative für deutsche ddl's hin. Ich habe mich für die Seite von nox entschieden. Da Nox auf anfrage keine API anbietet wird es mit Selenium gelöst. Mithilde der TMDB API werden die Filme anschliessend umbenennt. HandBrake hilft beim konvertieren (mkv -> mp4, german forced sub, german & english) zu mp4 um Platz zu sparen und die Filme ohne Transkodierung abspielen zu können. Anschliessend werden die Dateien in einen Ordner verschoben. Dieser kann dann im Emby, Plex oder Jellyfin als Bibliotheke hinzugefügt werden. Bei Fehler vom Skript erhaltest Du eine Email und es wird im Log ('log_convert_rename_move.txt') vermerkt.
 
 
-
+![Donwload](https://i.imgur.com/5e235hS.gif)
 
 ## Requirements
 - [TMDB API KEY](https://www.themoviedb.org/settings/api?language=de-CH) (Konto erstellen und auf der Kontoseite kopieren)
@@ -28,8 +28,6 @@ Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https:/
 
 
 ## Installation
-
-
 ```
 #Herunterladen der Repo
 git clone https://github.com/eliasfrehner/noxBot.git
