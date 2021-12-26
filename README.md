@@ -5,6 +5,8 @@
 Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https://radarr.video/), [Sonarr](https://sonarr.tv/)), muss eine alternative für deutsche ddl's hin. Ich habe mich für die Seite von nox entschieden. Da Nox auf anfrage keine API anbietet wird es mit Selenium gelöst. Mithilde der TMDB API werden die Filme anschliessend umbenennt. HandBrake hilft beim konvertieren (mkv -> mp4, german forced sub, german & english) zu mp4 um Platz zu sparen und die Filme ohne Transkodierung abspielen zu können. Anschliessend werden die Dateien in einen Ordner verschoben. Dieser kann dann im Emby, Plex oder Jellyfin als Bibliotheke hinzugefügt werden. Bei Fehler vom Skript erhaltest Du eine Email und es wird im Log ('log_convert_rename_move.txt') vermerkt.
 
 
+
+
 ## Requirements
 - [Nox](https://nox.to/)-Konto
 - [my.jdownloader](https://my.jdownloader.org)-Konto
@@ -22,6 +24,8 @@ Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https:/
 - Im get_movie_CLI.py müssen `noxusername`, `noxpassword`, `myjdownloaderusername` und `myjdownloaderpassword` mit Deinen angaben ausgefüllt werden.
 
 
+
+
 ## Installation
 Herunterladen der Repo
 ```
@@ -36,9 +40,13 @@ Ausführen des Scriptes
 python3 get_movie_CLI.py
 ```
 
+
+
 ## Usage
 
 Der fertige Film findest Du unter `C:\space\converted\`
+
+
 
 ## Ordnerstruktur
 Hier ist zu sehen wie die Ordnerstruktur aussehen sollte.
@@ -69,6 +77,8 @@ C:\space\
     ├── 'The Ice Road (2021).mp4'
     └── 'Dark Web - Cicada 3301 (2021).mp4'
 ```
+
+
 
 
 ## ToDo
