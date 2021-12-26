@@ -14,9 +14,13 @@ noxpassword = ""
 myjdownloaderusername = ""
 myjdownloaderpassword = ""
 
+linux = 0 #1 for on
+headless = 1 #1 for on
 
-def clear(): return os.system('cls')
-headless = 0 #1 for on
+if linux== 1:
+  def clear(): return os.system('clear')
+else:
+  def clear(): return os.system('cls')
 
 if headless == 1:
   options = Options()
@@ -27,11 +31,10 @@ if headless == 1:
   options.add_experimental_option("excludeSwitches", ["enable-logging"])
   user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
   options.add_argument(f'user-agent={user_agent}')
-  options.AddArgument("no-sandbox");
-  driver = webdriver.Chrome(executable_path=r'C:\space\tools\chromedriver.exe', options=options)
+  driver = webdriver.Chrome(executable_path=r'chromedriver.exe', options=options)
   clear()
 else:
-  driver = webdriver.Chrome(executable_path=r'C:\space\tools\chromedriver.exe')
+  driver = webdriver.Chrome(executable_path=r'chromedriver.exe')
 
 driver.get("https://nox.to/")
 driver.set_window_size(1920, 1080)
@@ -40,42 +43,44 @@ time.sleep(2)
 
 #login
 driver.find_element(By.XPATH, '/html/body/div[2]/div/nav/div/div[3]/ul/li[3]/a').click()
-driver.find_element(By.XPATH, '//*[@id="username"]').send_keys("$($noxusername)")
-driver.find_element(By.XPATH, '//*[@id="password"]').send_keys("$($noxpassword)")
+driver.find_element(By.XPATH, '//*[@id="username"]').send_keys(noxusername)
+driver.find_element(By.XPATH, '//*[@id="password"]').send_keys(noxpassword)
 driver.find_element(By.XPATH, '/html/body/div[2]/div/nav/div/div[3]/ul/li[3]/ul/li/div/div[1]/form/div[3]/button').click()
 time.sleep(2)
 
 
 #search movie
-movienamesearch = input('filmname: ')
-driver.find_element(By.XPATH, '//*[@id="search_keyword"]').send_keys(movienamesearch)
-driver.find_element(By.XPATH, '/html/body/div[2]/div/nav/div/div[3]/div/form/div/div/button').click()
+while len(driver.find_elements(By.XPATH, '/html/body/div[2]/div/div[2]/div/div[1]/div/div/table/tbody[1]/tr[2]/td[2]/a')) < 1:
+  clear()
+  movienamesearch = input('filmname: ')
+  driver.find_element(By.XPATH, '//*[@id="search_keyword"]').send_keys(movienamesearch)
+  driver.find_element(By.XPATH, '/html/body/div[2]/div/nav/div/div[3]/div/form/div/div/button').click()
 
-time.sleep(2)
-clear()
-
-
-rawmoviecount = driver.find_elements(By.XPATH, '//*[@id="root"]/div/div[2]/div/div[1]/div/div/table/tbody[1]/tr')
-moviecount = (len(rawmoviecount)) -1
-print(moviecount)
+  time.sleep(2)
+  clear()
 
 
-#loop durch die filme
-i = 2
-t = PrettyTable(['Nummer', 'Film'])
-t.align["Film"] = "l"
-while i <= (1+moviecount):
-  stri = str(i)
-  showstri = int(i)-1
-  movieelement = driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div/div[1]/div/div/table/tbody[1]/tr['+str(stri)+']/td[2]/a')
-  moviename = movieelement.text
-  movielink = movieelement.get_attribute('href')
-  #print(stri + ": "+ moviename)
-  t.add_row([str(showstri), moviename])
-  i += 1
+  rawmoviecount = driver.find_elements(By.XPATH, '//*[@id="root"]/div/div[2]/div/div[1]/div/div/table/tbody[1]/tr')
+  moviecount = (len(rawmoviecount)) -1
+  print(moviecount)
 
-clear()
-print(t)
+
+  #loop durch die filme
+  i = 2
+  t = PrettyTable(['Nummer', 'Film'])
+  t.align["Film"] = "l"
+  while i <= (1+moviecount):
+    stri = str(i)
+    showstri = int(i)-1
+    movieelement = driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div/div[1]/div/div/table/tbody[1]/tr['+str(stri)+']/td[2]/a')
+    moviename = movieelement.text
+    movielink = movieelement.get_attribute('href')
+    #print(stri + ": "+ moviename)
+    t.add_row([str(showstri), moviename])
+    i += 1
+
+  clear()
+  print(t)
 
 #film auswählen
 moviechoice = input('wähle den film: ')
@@ -83,6 +88,9 @@ rawmoviechoice = int(moviechoice)+1
 driver.find_element(By.XPATH, '//*[@id="root"]/div/div[2]/div/div[1]/div/div/table/tbody[1]/tr['+str(rawmoviechoice)+']/td[2]/a').click()
 clear()
 time.sleep(7)
+
+  
+
 
 exitwhile = 0
 while exitwhile == 0:
@@ -114,12 +122,13 @@ except:
 noxmoviename = driver.find_element(By.XPATH, '/html/body/div[2]/div/div['+trywith+']/div/div[1]/span/h2').text
 imdbrating = driver.find_element(By.XPATH, '/html/body/div[2]/div/div['+trywith+']/div/div[2]/div[2]/div[2]/div/div/div/a/span').text
 
-t = PrettyTable(['Sache', 'Wert'])
+t = PrettyTable(['Sache', 'Wert', 'Status'])
 t.align["Wert"] = "l"
-t.add_row(['Filmname', noxmoviename])
-t.add_row(['Jahrgang', movieyear])
-t.add_row(['IMDB', imdbrating])
-t.add_row(['========', ""])
+t.align["Sonstiges"] = "l"
+t.add_row(['Filmname', noxmoviename, ''])
+t.add_row(['Jahrgang', movieyear, ''])
+t.add_row(['IMDB', imdbrating, ''])
+t.add_row(['========', "", ''])
 
 
 trywith = "3"
@@ -132,6 +141,11 @@ if moviecount < 1:
 print(moviecount)
 
 
+
+
+
+
+
 #loop durch die filme
 i = 1
 while i <= (moviecount):
@@ -139,13 +153,17 @@ while i <= (moviecount):
   moviename = driver.find_element(By.XPATH, '/html/body/div[2]/div/div['+trywith+']/div/div[3]/div/table/tbody/tr['+stri+']/td[2]/small').text
   #movielink = driver.find_element(By.XPATH, '/html/body/div[2]/div/div['+trywith+']/div/div[3]/div/table/tbody/tr['+stri+']/td[5]/a').get_attribute('href')
   #print(stri + ": "+ moviename)
-  t.add_row([stri, moviename])
+  if len(driver.find_elements(By.XPATH, '/html/body/div[2]/div/div['+trywith+']/div/div[3]/div/table/tbody/tr['+stri+']/td[4]/img')) < 1:
+    t.add_row([stri, moviename, "Online"])
+  else:
+    t.add_row([stri, moviename, "Offline"])
   i += 1
 
 clear()
 print(t)
 
 moviechoice = input('wähle die version: ')
+time.sleep(1)
 linktomovie = driver.find_element(By.XPATH, '/html/body/div[2]/div/div['+trywith+']/div/div[3]/div/table/tbody/tr['+str(moviechoice)+']/td[5]/a').get_attribute('href')
 clear()
 
@@ -153,8 +171,8 @@ clear()
 #open my.jdownloader.com
 driver.get("https://my.jdownloader.org/login.html#logout")
 time.sleep(2)
-driver.find_element(By.XPATH, '//*[@id="usernameInput"]').send_keys("$($myjdownloaderusername)")
-driver.find_element(By.XPATH, '//*[@id="passwordInput"]').send_keys("$($myjdownloaderpassword")
+driver.find_element(By.XPATH, '//*[@id="usernameInput"]').send_keys(myjdownloaderusername)
+driver.find_element(By.XPATH, '//*[@id="passwordInput"]').send_keys(myjdownloaderpassword)
 driver.find_element(By.XPATH, '//*[@id="loginButton"]').click()
 time.sleep(2)
 
@@ -184,10 +202,10 @@ time.sleep(0.5)
 driver.find_element(By.XPATH, '/html/body/div[4]/div/div/div/div/table/tbody/tr[5]/td[2]/input').send_keys(imdbid + "_" + noxmoviename)
 #add
 driver.find_element(By.XPATH, '/html/body/div[4]/div/div/div/div/div[1]/button[1]').click()
-time.sleep(2)
+time.sleep(1)
 
 driver.refresh()
-time.sleep(2)
+time.sleep(3)
 
 #start download
 driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div[3]/div/div/div[1]/div').click()
