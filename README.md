@@ -28,44 +28,39 @@ Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https:/
 
 
 ## Installation
-Herunterladen der Repo
+
+
 ```
+#Herunterladen der Repo
 git clone https://github.com/eliasfrehner/noxBot.git
-```
-Navigieren in das noxBot Verzeichnis
-```
+
+#Navigieren in das noxBot Verzeichnis
 cd noxBot/
-```
-Erstellen der Aufgabenplanung (diese Sorgt dafür, dass alle 5 Minuten überprüft wird ob neue Dateien zu Managen sind)
-Passwort wird gebraucht um den Task zu installieren
-```
+
+#Erstellen der Aufgabenplanung (diese Sorgt dafür, dass alle 5 Minuten überprüft wird ob neue Dateien zu Managen sind)
+#Passwort wird gebraucht um den Task zu installieren
 schtasks /create /xml ".\convert_rename_move-task_schedule.xml" /tn "convert_rename_move" /ru $env:UserName /rp *
-```
-Erstellen der Ordner
-```
+
+#Erstellen der Ordner
 mkdir C:\space
 mkdir C:\space\tools
 mkdir C:\space\media
 mkdir C:\space\downloaded
 mkdir C:\space\converted
 mkdir C:\space\renamed
-```
-Kopieren der Dateien ins Zielverzeichniss
-```
+
+#Kopieren der Dateien ins Zielverzeichniss
 cp "convert_rename_move.ps1" C:\space\tools\
 cp "lowmoviesbyelias.json" C:\space\tools\
 cp "get_movie_CLI.py" C:\space\tools\
-```
-Passe die Angaben an (sind praktisch ganz oben): `noxusername`, `noxpassword`, `myjdownloaderusername` und `myjdownloaderpassword`
-```
+
+#Passe die Angaben an (sind praktisch ganz oben): 'noxusername', 'noxpassword', 'myjdownloaderusername' und 'myjdownloaderpassword'
 notepad "C:\space\tools\get_movie_CLI.py"
-```
-Passe die Angaben an (sind ganz oben): `$tmdb_API_KEY`, `$gmail_sender_address`, `$gmail_sender_password` und `$reciver_address`
-```
+
+#Passe die Angaben an (sind ganz oben): '$tmdb_API_KEY', '$gmail_sender_address', '$gmail_sender_password' und '$reciver_address'
 notepad "C:\space\tools\convert_rename_move.ps1"
-```
-Lösche den noxBot-ordner welcher nicht mehr gebraucht wird:
-```
+
+#Lösche den noxBot-ordner welcher nicht mehr gebraucht wird:
 cd ..; rm -Recurse -Force noxBot\
 ```
 
