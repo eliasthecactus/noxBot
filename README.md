@@ -35,7 +35,7 @@ Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https:/
 git clone https://github.com/eliasfrehner/noxBot.git
 
 #Navigieren in das noxBot Verzeichnis
-cd noxBot/
+cd noxBot
 
 #Erstellen der Aufgabenplanung (diese Sorgt dafür, dass alle 5 Minuten überprüft wird ob neue Dateien zu Managen sind)
 #Passwort wird gebraucht um den Task zu installieren
@@ -50,9 +50,9 @@ mkdir C:\space\converted
 mkdir C:\space\renamed
 
 #Kopieren der Dateien ins Zielverzeichniss
-cp "convert_rename_move.ps1" C:\space\tools\
-cp "lowmoviesbyelias.json" C:\space\tools\
-cp "get_movie_CLI.py" C:\space\tools\
+cp ".\convert_rename_move.ps1" "C:\space\tools\"
+cp ".\lowmoviesbyelias.json" "C:\space\tools\"
+cp ".\get_movie_CLI.py" "C:\space\tools\"
 
 #Passe die Angaben an (sind praktisch ganz oben): 'noxusername', 'noxpassword', 'myjdownloaderusername' und 'myjdownloaderpassword'
 notepad "C:\space\tools\get_movie_CLI.py"
