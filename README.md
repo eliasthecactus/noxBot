@@ -39,6 +39,8 @@ cd noxBot
 
 #Erstellen der Aufgabenplanung (diese Sorgt dafür, dass alle 5 Minuten überprüft wird ob neue Dateien zu Managen sind)
 #Passwort wird gebraucht um den Task zu installieren
+clear
+echo "Bitte gib Dein passwort ein um den Task zum umbenennen und konvertieren der Filme ein:"
 schtasks /create /xml ".\convert_rename_move-task_schedule.xml" /tn "convert_rename_move" /ru $env:UserName /rp *
 
 #Erstellen der Ordner
