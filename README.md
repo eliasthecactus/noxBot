@@ -70,7 +70,7 @@ echo "Installation abgeschlossen"
 ## Usage
 Zum starten des ganzen öffne die PowerShell und füge folgenes ein:
 ```
-python3 get_movie_CLI.py
+python C:\space\tools\get_movie_CLI.py
 ```
 Du wirst nun nach dem Filmname und der Verfügbaren Qualität gefragt. Soabld dies getan ist wird der Film heruntergeladen. 
 Den fertigen Film findest Du unter `C:\space\media\movies\`
