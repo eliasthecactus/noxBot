@@ -118,7 +118,7 @@ C:\space\
 - [x] Automatisches umbenennen, verschieben und konvertieren der Dateien (siehe move [convert_rename_move](#))
 - [x] Ersetze von Windows nicht erlaubte Zeichen für Dateien (:)->( - ) & (')->()
 - [x] Automatisieren mithilfe der Aufgabenplanung
-- [ ] Log nach gewisser Zeit bereinigen
 - [ ] GUI-Version von 'get_movie_CLI.py'
 - [ ] Kalender mit automatischem Download nach release auf nox
+- [ ] Telegram-Integrierung
 
