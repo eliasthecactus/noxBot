@@ -11,7 +11,7 @@ Da all die 'rr' Programme nur mit torrents funktinoieren (siehe [Radarr](https:/
 - Jdownloader
 - Selenium
 - Chrome
-- Chromedriver
+- Chromedriver (in PATH)
 - prettytable
 - MultiHoster Konto zum downloaden der Dateien (z.B. [Linksnappy](https://linksnappy.com/?ref=354818)(Abo) oder [Premium.to](http://premium.to/?ref=GY2TCMBQ)(Prepaid))
 - MultiHoster-konto muss im JDownloader aktiviert sein
