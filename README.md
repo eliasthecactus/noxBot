@@ -8,6 +8,7 @@ Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https:/
 
 
 ## Requirements
+- [TMDB API KEY](https://www.themoviedb.org/settings/api?language=de-CH) (Konto erstellen und auf der Kontoseite kopieren)
 - [Nox](https://nox.to/)-Konto
 - [my.jdownloader](https://my.jdownloader.org)-Konto
 - [Chromedriver](https://chromedriver.chromium.org/) (in PATH) (muss mit der Version von Chrome übereinstimmen)
@@ -29,22 +30,49 @@ Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https:/
 ## Installation
 Herunterladen der Repo
 ```
-https://github.com/eliasfrehner/noxBot.git
+git clone https://github.com/eliasfrehner/noxBot.git
 ```
 Navigieren in das noxBot Verzeichnis
 ```
 cd noxBot/
 ```
-Ausführen des Scriptes
+Erstellen der Aufgabenplanung (diese Sorgt dafür, dass alle 5 Minuten überprüft wird ob neue Dateien zu Managen sind)
+Passwort wird gebraucht um den Task zu installieren
 ```
-python3 get_movie_CLI.py
+schtasks /create /xml ".\convert_rename_move-task_schedule.xml" /tn "convert_rename_move" /ru $env:UserName /rp *
 ```
-
+Erstellen der Ordner
+```
+mkdir C:\space
+mkdir C:\space\tools
+mkdir C:\space\media
+mkdir C:\space\downloaded
+mkdir C:\space\converted
+mkdir C:\space\renamed
+```
+Kopieren der Dateien ins Zielverzeichniss
+```
+cp "convert_rename_move.ps1" C:\space\tools\
+cp "lowmoviesbyelias.json" C:\space\tools\
+cp "get_movie_CLI.py" C:\space\tools\
+```
+Passe die Angaben an (sind praktisch ganz oben): `noxusername`, `noxpassword`, `myjdownloaderusername` und `myjdownloaderpassword`
+```
+notepad "C:\space\get_movie_CLI.py"
+```
+Passe die Angaben an (sind ganz oben): `$tmdb_API_KEY`, `$gmail_sender_address`, `$gmail_sender_password` und `$reciver_address`
+```
+notepad "convert_rename_move.ps1"
+```
 
 
 ## Usage
-
-Der fertige Film findest Du unter `C:\space\converted\`
+Zum starten des ganzen öffne die PowerShell und füge folgenes ein:
+```
+python3 get_movie_CLI.py
+```
+Du wirst nun nach dem Filmname und der Verfügbaren Qualität gefragt. Soabld dies getan ist wird der Film heruntergeladen. 
+Den fertigen Film findest Du unter `C:\space\media\movies\`
 
 
 
@@ -90,62 +118,4 @@ C:\space\
 - [x] Automatisieren mithilfe der Aufgabenplanung
 - [ ] Log nach gewisser Zeit bereinigen
 - [ ] GUI-Version vom 'get_movie.py'
-
-
-
-
-
-
-
-## Ordnerstruktur
-```
-C:\space\
-├── media\
-│   ├── movies\
-│   │   ├── 'Red Notice (2021).mp4'
-│   │   └── 'Shang-Chi and the Legend of the Ten Rings (2021)'
-│   │
-│   └── tvshows\
-│
-├── tools\
-│   ├── 'convert_rename_move.ps1'
-│   ├── 'log_convert_rename_move.txt'
-│   ├── 'lowmoviesbyelias.json'
-│   └── 'get_movie_CLI.py'
-│
-├── downloaded\
-│   ├── 'tt3758814_The Ice Road'
-│   └── 'tt8110246_Dark Web: Cicada 3301'
-│
-├── renamed\
-│   ├── 'The Ice Road (2021).mkv'
-│   └── 'Dark Web - Cicada 3301 (2021).mkv'
-│
-└── converted\
-    ├── 'The Ice Road (2021).mp4'
-    └── 'Dark Web - Cicada 3301 (2021).mp4'
-```
-
-
-## Installation
-Herunterladen der Repo
-```
-https://github.com/eliasfrehner/noxBot.git
-```
-Navigieren in das noxBot Verzeichnis
-```
-cd noxBot/
-```
-Kopieren, erstellen und löschen wichtiger Dateien
-```
-mkdir C:\space
-mkdir C:\space\tools
-mkdir C:\space\media
-mkdir C:\space\downloaded
-mkdir C:\space\converted
-mkdir C:\space\renamed
-cp "convert_rename_move.ps1" C:\space\tools\
-cp "lowmoviesbyelias.json" C:\space\tools\
-```
-
 
