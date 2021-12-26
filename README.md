@@ -64,6 +64,10 @@ Passe die Angaben an (sind ganz oben): `$tmdb_API_KEY`, `$gmail_sender_address`,
 ```
 notepad "C:\space\tools\convert_rename_move.ps1"
 ```
+Lösche den noxBot-ordner welcher nicht mehr gebraucht wird:
+```
+cd ..; rm -Recurse -Force noxBot\
+```
 
 
 ## Usage
