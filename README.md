@@ -58,11 +58,11 @@ cp "get_movie_CLI.py" C:\space\tools\
 ```
 Passe die Angaben an (sind praktisch ganz oben): `noxusername`, `noxpassword`, `myjdownloaderusername` und `myjdownloaderpassword`
 ```
-notepad "C:\space\get_movie_CLI.py"
+notepad "C:\space\tools\get_movie_CLI.py"
 ```
 Passe die Angaben an (sind ganz oben): `$tmdb_API_KEY`, `$gmail_sender_address`, `$gmail_sender_password` und `$reciver_address`
 ```
-notepad "convert_rename_move.ps1"
+notepad "C:\space\tools\convert_rename_move.ps1"
 ```
 
 
