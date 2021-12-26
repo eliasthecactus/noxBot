@@ -9,10 +9,10 @@ Da all die 'rr' Programme nur mit torrents funktinoieren (siehe [Radarr](https:/
 - [my.jdownloader](https://my.jdownloader.org)-Konto
 - Python3
 - Jdownloader
-- Selenium
+- [Selenium](https://pypi.org/project/selenium/)
 - Chrome
-- Chromedriver (in PATH)
-- prettytable
+- [Chromedriver](https://chromedriver.chromium.org/) (in PATH)
+- [prettytable](https://pypi.org/project/prettytable/)
 - MultiHoster Konto zum downloaden der Dateien (z.B. [Linksnappy](https://linksnappy.com/?ref=354818)(Abo) oder [Premium.to](http://premium.to/?ref=GY2TCMBQ)(Prepaid))
 - MultiHoster-konto muss im JDownloader aktiviert sein
 - Auf dem zu benutzenden my.jdownloader-Konto darf nur ein Computer angemeldet sein
