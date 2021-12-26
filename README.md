@@ -62,6 +62,8 @@ notepad "C:\space\tools\convert_rename_move.ps1"
 
 #Lösche den noxBot-ordner welcher nicht mehr gebraucht wird:
 cd ..; rm -Recurse -Force noxBot\
+clear
+echo "Installation abgeschlossen"
 ```
 
 
