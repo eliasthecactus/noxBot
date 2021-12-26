@@ -121,5 +121,6 @@ C:\space\
 - [x] Ersetze von Windows nicht erlaubte Zeichen für Dateien (:)->( - ) & (')->()
 - [x] Automatisieren mithilfe der Aufgabenplanung
 - [ ] Log nach gewisser Zeit bereinigen
-- [ ] GUI-Version vom 'get_movie.py'
+- [ ] GUI-Version von 'get_movie_CLI.py'
+- [ ] Kalender mit automatischem Download nach release auf nox
 
