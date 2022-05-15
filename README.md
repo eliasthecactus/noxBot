@@ -30,7 +30,7 @@ Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https:/
 ## Installation
 ```
 #Herunterladen der Repo
-git clone https://github.com/eliasfrehner/noxBot.git
+git clone https://github.com/2223sam/noxBot.git
 
 #Navigieren in das noxBot Verzeichnis
 cd noxBot
