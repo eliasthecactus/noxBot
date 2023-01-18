@@ -1,5 +1,7 @@
 # noxBot
 
+<span style="color:red;font-size:30px;">An diesem Projekt wird nicht mehr weitergearbeitet. Das neue Projekt heisst PlexGet.</span>.
+
 
 ## Description
 Da all die 'rr' Programme nur mit torrents funktionieren (siehe [Radarr](https://radarr.video/), [Sonarr](https://sonarr.tv/)), muss eine alternative für deutsche ddl's hin. Ich habe mich für die Seite von nox entschieden. Da Nox auf anfrage keine API anbietet wird es mit Selenium gelöst. Mithilde der TMDB API werden die Filme anschliessend umbenennt. HandBrake hilft beim konvertieren (mkv -> mp4, german forced sub, german & english) zu mp4 um Platz zu sparen und die Filme ohne Transkodierung abspielen zu können. Anschliessend werden die Dateien in einen Ordner verschoben. Dieser kann dann im Emby, Plex oder Jellyfin als Bibliotheke hinzugefügt werden. Bei Fehler vom Skript erhaltest Du eine Email und es wird im Log ('log_convert_rename_move.txt') vermerkt.
