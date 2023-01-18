@@ -1,6 +1,6 @@
 # noxBot
 
-<span style="color:red;font-size:30px;">An diesem Projekt wird nicht mehr weitergearbeitet. Das neue Projekt heisst PlexGet.</span>.
+# ❗An diesem Projekt wird nicht mehr weitergearbeitet. Das neue Projekt heisst PlexGet.❗
 
 
 ## Description
