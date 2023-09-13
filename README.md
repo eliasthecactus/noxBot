@@ -1,6 +1,6 @@
 # noxBot
 
-# ❗An diesem Projekt wird nicht mehr weitergearbeitet. Das neue Projekt heisst PlexGet.❗
+# ❗An diesem Projekt wird nicht mehr weitergearbeitet. Das neue Projekt heisst Plexer.❗
 
 
 ## Description
